@@ -40,3 +40,8 @@ export const Form = styled.form`
     margin-top: ${metrics.baseMargin * 2}px;
   }
 `;
+
+export const MessageError = styled.span`
+  color: ${colors.red};
+  margin-top: ${metrics.baseMargin}px;
+`;

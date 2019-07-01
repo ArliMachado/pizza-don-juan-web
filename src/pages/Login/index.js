@@ -3,30 +3,60 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { Container, Form } from './styles';
+import { Creators as LoginActions } from '../../store/ducks/login';
+
+import { Container, Form, MessageError } from './styles';
 import pizzaLogo from '../../assets/logo.png';
 
 class Login extends Component {
+  state = {
+    email: '',
+    password: '',
+  };
+
+  handleLogin = (event) => {
+    event.preventDefault();
+    const { loginRequest } = this.props;
+    loginRequest(this.state);
+  };
+
   render() {
+    const { email, password } = this.state;
+    const {
+      login: { error, message },
+    } = this.props;
+
     return (
       <Container>
-        <img src={pizzaLogo} />
-        <Form onSubmit={() => {}}>
-          <input type="text" placeholder="Seu e-mail" />
-          <input type="password" placeholder="Sua senha" />
+        <img src={pizzaLogo} alt="PizzaDonJuan" />
+        <Form onSubmit={this.handleLogin}>
+          <input
+            type="text"
+            value={email}
+            placeholder="Seu e-mail"
+            onChange={e => this.setState({ email: e.target.value })}
+          />
+          <input
+            type="password"
+            placeholder="Sua senha"
+            value={password}
+            onChange={e => this.setState({ password: e.target.value })}
+          />
           <button type="submit">Entrar</button>
+          {error && <MessageError>{message}</MessageError>}
         </Form>
       </Container>
     );
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  login: state.login,
+});
 
-// const mapDispatchToProps = dispatch =>
-//   bindActionCreators(Actions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(LoginActions, dispatch);
 
 export default connect(
   mapStateToProps,
-  // mapDispatchToProps
+  mapDispatchToProps,
 )(Login);
