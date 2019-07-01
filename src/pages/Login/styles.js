@@ -1,34 +1,42 @@
 import styled from 'styled-components';
-// import { colors } from '~/style';
+import { colors, metrics, fonts } from '../../styles';
 
 export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  /* padding-top: 60px; */
-  justify-content: center;
-  background-color: #44f;
   height: 100%;
-  min-height: 100%;
-`;
-
-export const FormContent = styled.div`
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
-
 export const Form = styled.form`
   margin-top: 20px;
   width: 100%;
-  max-width: 400px;
+  max-width: 280px;
+
   display: flex;
+  flex-direction: column;
+  align-items: stretch;
 
   input {
-    flex: 1;
-    height: 55px;
-    padding: 0 20px;
-    background: #fff;
-    font-size: 18px;
-    color: #444;
-    border-radius: 3px;
+    background: ${colors.white};
+    border: 1px solid ${colors.light};
+    border-radius: ${metrics.baseRadius * 2}px;
+    height: 44px;
+    padding: 0 15px;
+    font-size: 14px;
+    margin-top: ${metrics.baseMargin}px;
+  }
+
+  button {
+    margin: ${metrics.baseMargin};
+    background: ${colors.red};
+    border-radius: ${metrics.baseRadius}px;
+    height: 44px;
+    border: 0;
+    color: ${colors.white};
+    font-weight: bold;
+    cursor: pointer;
+    font-size: ${fonts.medium};
+    margin-top: ${metrics.baseMargin * 2}px;
   }
 `;

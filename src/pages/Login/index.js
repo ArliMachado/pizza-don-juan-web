@@ -3,17 +3,19 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { Container, FormContent, Form } from './styles';
+import { Container, Form } from './styles';
+import pizzaLogo from '../../assets/logo.png';
 
 class Login extends Component {
   render() {
     return (
       <Container>
-        <FormContent>
-          <Form onSubmit={() => {}}>
-            <input type="text" placeholder="Seu e-mail" />
-          </Form>
-        </FormContent>
+        <img src={pizzaLogo} />
+        <Form onSubmit={() => {}}>
+          <input type="text" placeholder="Seu e-mail" />
+          <input type="password" placeholder="Sua senha" />
+          <button type="submit">Entrar</button>
+        </Form>
       </Container>
     );
   }

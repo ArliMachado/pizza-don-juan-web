@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
   *{
     margin: 0;
     padding: 0;
+    outline: 0;
     box-sizing: border-box;
     outline: 0;
   }
@@ -14,6 +15,11 @@ const GlobalStyle = createGlobalStyle`
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
     font-family: sans-serif;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
   }
 `;
 
