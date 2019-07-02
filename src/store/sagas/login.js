@@ -7,18 +7,10 @@ export function* authenticate(action) {
   try {
     const { user } = action.payload;
 
-    const { data } = yield call(api.post, '/sessions?origin=BROWSER', user);
+    const response = yield call(api.post, '/sessions?origin=BROWSER', user);
 
-    console.tron.log(`user: ${JSON.stringify(data)}`);
-  } catch (err) {
-    yield put(LoginActions.loginFailure(err));
-    // if (erro.status === 401) {
-    //   // yield put(LoginActions.loginFailure('Usuário não autorizado'));
-    //   yield put(LoginActions.loginFailure('Usuário não autorizado'));
-    // } else {
-    //   console.tron.log(`user: ${JSON.stringify(erro)}`);
-
-    //   yield put(LoginActions.loginFailure('Houve um erro ao tentar efetuar login'));
-    // }
+    console.tron.log(`user: ${JSON.stringify(response)}`);
+  } catch ({ response: { data } }) {
+    yield put(LoginActions.loginFailure(data[0].message));
   }
 }
