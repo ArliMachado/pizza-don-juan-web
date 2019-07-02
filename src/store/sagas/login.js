@@ -24,3 +24,9 @@ export function* authenticate(action) {
     yield put(LoginActions.loginFailure(data[0].message));
   }
 }
+
+export function* logout() {
+  yield call(removeAuthToken);
+  yield call(removeUser);
+  yield put(push('/'));
+}
