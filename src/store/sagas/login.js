@@ -15,9 +15,9 @@ export function* authenticate(action) {
       data: { user, token },
     } = yield call(api.post, '/sessions?origin=BROWSER', login);
 
-    setAuthToken(token);
+    yield call(setAuthToken, token);
 
-    setUser(user);
+    yield call(setUser, user);
 
     yield put(push('/orders'));
   } catch ({ response: { data } }) {
