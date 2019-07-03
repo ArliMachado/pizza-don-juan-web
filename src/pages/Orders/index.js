@@ -8,6 +8,11 @@ import Header from '../../components/Header';
 // import { Container } from './styles';
 
 class Orders extends Component {
+  componentDidMount() {
+    const { orderRequest } = this.props;
+    orderRequest();
+  }
+
   render() {
     return (
       <Fragment>

@@ -11,11 +11,15 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    /* background: #9B65E6; */
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
     font-family: sans-serif;
   }
+
+  button{
+    cursor: pointer;
+  }
+
   html,
   body,
   #root {

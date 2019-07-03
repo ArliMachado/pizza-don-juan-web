@@ -7,6 +7,8 @@ export const setAuthToken = token => localStorage.setItem(TOKEN, JSON.stringify(
 
 export const setUser = user => localStorage.setItem(USER, JSON.stringify(user));
 
+export const getUser = () => JSON.parse(localStorage.getItem(USER));
+
 export const isAuthenticated = () => !!localStorage.getItem(TOKEN);
 
 export const removeAuthToken = () => localStorage.removeItem(TOKEN);

@@ -10,7 +10,7 @@ export const Container = styled.div`
   background-color: ${colors.primary};
 `;
 
-export const TitleContainer = styled.div`
+export const TitleContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,4 +20,34 @@ export const TitleContainer = styled.div`
     color: ${colors.white};
     margin-left: ${metrics.baseMargin * 1.4}px;
   }
+`;
+
+export const ProfileContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  button {
+    font-size: ${fonts.medium};
+    color: ${colors.regular};
+    opacity: 0.6;
+    text-decoration: none;
+    background: ${colors.transparent};
+    border: none;
+  }
+`;
+export const NameText = styled.span`
+  font-size: ${fonts.big};
+  font-weight: bold;
+  color: ${colors.white};
+`;
+
+export const OrdersButton = styled.button`
+  background: ${colors.red};
+  border: none;
+  border-radius: 50%;
+  font-size: ${fonts.bigger};
+  color: ${colors.white};
+  width: 40px;
+  height: 40px;
 `;
