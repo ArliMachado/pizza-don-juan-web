@@ -3,14 +3,18 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Creators as OrderActions } from '../../store/ducks/order';
+import logo from '../../assets/logo.png';
 
-import { Container } from './styles';
+import { Container, TitleContainer } from './styles';
 
 class Header extends Component {
   render() {
     return (
       <Container>
-        <h1>Pizzaria Don Juan</h1>
+        <TitleContainer>
+          <img src={logo} alt="pizzadonjuan" />
+          <h2>Pizzaria Don Juan</h2>
+        </TitleContainer>
         <h1>sair</h1>
       </Container>
     );

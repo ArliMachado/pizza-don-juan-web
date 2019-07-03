@@ -8,10 +8,16 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-around;
   background-color: ${colors.primary};
+`;
 
-  h1: {
-    font-size: ${fonts.big};
+export const TitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h2 {
     font-weight: bold;
     color: ${colors.white};
+    margin-left: ${metrics.baseMargin * 1.4}px;
   }
 `;
