@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Creators as OrderActions } from '../../store/ducks/order';
+import { Creators as LoginActions } from '../../store/ducks/login';
 import logo from '../../assets/logo.png';
 
 import {
@@ -10,11 +11,16 @@ import {
 } from './styles';
 
 class Header extends Component {
-  componentDidMount() {
-    const { orderRequest } = this.props;
-  }
+  handleLogout = () => {
+    const { logoutRequest } = this.props;
+    logoutRequest();
+  };
 
   render() {
+    const {
+      order: { user },
+    } = this.props;
+
     return (
       <Container>
         <TitleContent>
@@ -22,8 +28,8 @@ class Header extends Component {
           <h2>Pizzaria Don Juan</h2>
         </TitleContent>
         <ProfileContent>
-          <NameText>Nome</NameText>
-          <button type="button" onClick={() => alert('teste')}>
+          <NameText>{user.username}</NameText>
+          <button type="button" onClick={this.handleLogout}>
             Sair do app
           </button>
         </ProfileContent>
@@ -35,8 +41,9 @@ class Header extends Component {
 const mapStateToProps = state => ({
   order: state.order,
 });
+const Actions = { ...LoginActions, ...OrderActions };
 
-const mapDispatchToProps = dispatch => bindActionCreators(OrderActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(Actions, dispatch);
 
 export default connect(
   mapStateToProps,

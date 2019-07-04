@@ -48,7 +48,7 @@ export const Creators = {
   loginSUCCESS: () => ({
     type: Types.SUCCESS,
   }),
-  logout: () => ({
+  logoutRequest: () => ({
     type: Types.LOGOUT,
   }),
   loginFailure: data => ({
