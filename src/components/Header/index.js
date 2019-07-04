@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -11,6 +12,15 @@ import {
 } from './styles';
 
 class Header extends Component {
+  static propTypes = {
+    logoutRequest: PropTypes.func.isRequired,
+    order: PropTypes.shape({
+      user: PropTypes.shape({
+        username: PropTypes.string,
+      }),
+    }).isRequired,
+  }
+
   handleLogout = () => {
     const { logoutRequest } = this.props;
     logoutRequest();
