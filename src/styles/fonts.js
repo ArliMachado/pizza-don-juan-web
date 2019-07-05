@@ -3,6 +3,6 @@ export default {
   big: 18,
   medium: 16,
   regular: 14,
-  small: 12,
+  small: 13,
   smaller: 11,
 };
