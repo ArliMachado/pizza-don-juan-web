@@ -5,19 +5,29 @@ import { connect } from 'react-redux';
 import { Creators as OrderActions } from '../../store/ducks/order';
 import Header from '../../components/Header';
 
-// import { Container } from './styles';
+import { Container, TitleList } from './styles';
+import OrderItem from './OrderItem';
 
 class Orders extends Component {
   componentDidMount() {
-    const { orderRequest } = this.props;
+    const {
+      orderRequest,
+      order: { order },
+    } = this.props;
     orderRequest();
   }
 
   render() {
+    const { order } = this.props;
     return (
       <Fragment>
         <Header />
-        <h1>content</h1>
+        <Container>
+          <TitleList>content</TitleList>
+          {order.data.map(o => (
+            <OrderItem key={o.id} data={o} />
+          ))}
+        </Container>
       </Fragment>
     );
   }

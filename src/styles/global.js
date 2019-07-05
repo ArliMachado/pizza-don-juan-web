@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import 'font-awesome/css/font-awesome.css';
+import colors from './colors';
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -14,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
     font-family: sans-serif;
+    background-color: ${colors.lighter};
   }
 
   button{
