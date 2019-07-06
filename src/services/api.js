@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { getAuthToken } from './auth';
 
-// const baseUrl = "http://10.168.69.237:3333";
 const baseUrl = 'http://192.168.1.107:3333';
 
 const api = axios.create({
@@ -13,9 +12,7 @@ api.interceptors.request.use(async (config) => {
     try {
       const { token } = await getAuthToken();
 
-      if (!token) {
-        // onSignOut();
-      } else {
+      if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }
     } catch (err) {

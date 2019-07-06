@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { bindActionCreators } from 'redux';
@@ -6,8 +6,9 @@ import { connect } from 'react-redux';
 
 import { Creators as LoginActions } from '../../store/ducks/login';
 
-import { Container, Form, MessageError } from './styles';
-import pizzaLogo from '../../assets/logo.png';
+import {
+  Container, Form, MessageError, Logo,
+} from './styles';
 
 class Login extends Component {
   static propTypes = {
@@ -36,25 +37,27 @@ class Login extends Component {
     } = this.props;
 
     return (
-      <Container>
-        <img src={pizzaLogo} alt="PizzaDonJuan" />
-        <Form onSubmit={this.handleLogin}>
-          <input
-            type="text"
-            value={email}
-            placeholder="Seu e-mail"
-            onChange={e => this.setState({ email: e.target.value })}
-          />
-          <input
-            type="password"
-            placeholder="Sua senha"
-            value={password}
-            onChange={e => this.setState({ password: e.target.value })}
-          />
-          <button type="submit">Entrar</button>
-          {error && <MessageError>{message}</MessageError>}
-        </Form>
-      </Container>
+      <Fragment>
+        <Container>
+          <Logo alt="PizzaDonJuan" />
+          <Form onSubmit={this.handleLogin}>
+            <input
+              type="text"
+              value={email}
+              placeholder="Seu e-mail"
+              onChange={e => this.setState({ email: e.target.value })}
+            />
+            <input
+              type="password"
+              placeholder="Sua senha"
+              value={password}
+              onChange={e => this.setState({ password: e.target.value })}
+            />
+            <button type="submit">Entrar</button>
+            {error && <MessageError>{message}</MessageError>}
+          </Form>
+        </Container>
+      </Fragment>
     );
   }
 }
