@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { IconContext } from 'react-icons';
+import { FaShoppingBag } from 'react-icons/fa';
+
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Creators as OrderActions } from '../../store/ducks/order';
@@ -8,7 +11,13 @@ import { Creators as LoginActions } from '../../store/ducks/login';
 import logo from '../../assets/logo.png';
 
 import {
-  Container, TitleContent, ProfileContent, NameText,
+  Container,
+  TitleContent,
+  ProfileContent,
+  Profile,
+  NameText,
+  ExitButton,
+  OrdersButton,
 } from './styles';
 
 class Header extends Component {
@@ -19,7 +28,7 @@ class Header extends Component {
         username: PropTypes.string,
       }),
     }).isRequired,
-  }
+  };
 
   handleLogout = () => {
     const { logoutRequest } = this.props;
@@ -38,10 +47,17 @@ class Header extends Component {
           <h2>Pizzaria Don Juan</h2>
         </TitleContent>
         <ProfileContent>
-          <NameText>{user.username}</NameText>
-          <button type="button" onClick={this.handleLogout}>
-            Sair do app
-          </button>
+          <Profile>
+            <NameText>{user.username}</NameText>
+            <ExitButton type="button" onClick={this.handleLogout}>
+              Sair do app
+            </ExitButton>
+          </Profile>
+          <OrdersButton>
+            <IconContext.Provider value={{ size: 16 }}>
+              <FaShoppingBag />
+            </IconContext.Provider>
+          </OrdersButton>
         </ProfileContent>
       </Container>
     );

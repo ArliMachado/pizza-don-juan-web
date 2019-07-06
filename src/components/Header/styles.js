@@ -24,18 +24,29 @@ export const TitleContent = styled.div`
 
 export const ProfileContent = styled.div`
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Profile = styled.div`
+  display: flex;
   flex-direction: column;
   align-items: center;
-
-  button {
-    font-size: ${fonts.medium};
-    color: ${colors.regular};
-    opacity: 0.6;
-    text-decoration: none;
-    background: ${colors.transparent};
-    border: none;
-  }
+  margin-right: ${metrics.baseMargin * 2}px;
+  padding-right: ${metrics.baseMargin * 2}px;
+  border-right: 1px solid rgba(255, 255, 255, 0.6);
 `;
+
+export const ExitButton = styled.button`
+  font-size: ${fonts.regular}px;
+  color: ${colors.regular};
+  opacity: 0.6;
+  text-decoration: none;
+  background: ${colors.transparent};
+  border: none;
+`;
+
 export const NameText = styled.span`
   font-size: ${fonts.big};
   font-weight: bold;
