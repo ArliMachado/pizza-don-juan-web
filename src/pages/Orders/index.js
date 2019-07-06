@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -9,11 +10,19 @@ import { Container, TitleContent, TitleList } from './styles';
 import OrderItem from './OrderItem';
 
 class Orders extends Component {
+  static propTypes = {
+    orderRequest: PropTypes.func.isRequired,
+    order: PropTypes.shape({
+      data: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number,
+        }),
+      ),
+    }).isRequired,
+  };
+
   componentDidMount() {
-    const {
-      orderRequest,
-      order: { order },
-    } = this.props;
+    const { orderRequest } = this.props;
     orderRequest();
   }
 

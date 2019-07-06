@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 import {
   Container,
@@ -17,7 +18,7 @@ import {
   OrderObservation,
 } from './styles';
 
-export default function OrderItem({ data }) {
+const OrderItem = ({ data }) => {
   const dataPedido = moment(data.created_at).fromNow();
   return (
     <Container>
@@ -44,4 +45,26 @@ export default function OrderItem({ data }) {
       </OrderObservation>
     </Container>
   );
-}
+};
+
+OrderItem.propTypes = {
+  data: PropTypes.shape({
+    created_at: PropTypes.string,
+    id: PropTypes.number,
+    total_value: PropTypes.string,
+    observation: PropTypes.string,
+    user: PropTypes.shape({
+      username: PropTypes.string,
+    }),
+    products: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        image: PropTypes.string,
+        title: PropTypes.string,
+        size: PropTypes.string,
+      }),
+    ),
+  }).isRequired,
+};
+
+export default OrderItem;

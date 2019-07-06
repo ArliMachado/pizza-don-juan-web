@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -9,6 +10,14 @@ import { Container, Form, MessageError } from './styles';
 import pizzaLogo from '../../assets/logo.png';
 
 class Login extends Component {
+  static propTypes = {
+    loginRequest: PropTypes.func.isRequired,
+    login: PropTypes.shape({
+      error: PropTypes.bool,
+      message: PropTypes.string,
+    }).isRequired,
+  };
+
   state = {
     email: '',
     password: '',
