@@ -4,6 +4,7 @@ import moment from 'moment';
 import {
   Container,
   Title,
+  IdTitle,
   Time,
   Price,
   OrderInfo,
@@ -22,7 +23,7 @@ export default function OrderItem({ data }) {
     <Container>
       <OrderInfo>
         <Title>
-          Pedido <strong> #{data.id}</strong> - {data.user.username}
+          Pedido <IdTitle>#{data.id} </IdTitle> - {data.user.username}
         </Title>
         <Time>{dataPedido}</Time>
         <Price>R$ {data.total_value}</Price>
