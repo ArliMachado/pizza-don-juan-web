@@ -14,16 +14,16 @@ import {
   ProductDescription,
   ProductName,
   ProductSize,
+  OrderObservation,
 } from './styles';
 
 export default function OrderItem({ data }) {
-  console.log(JSON.stringify(data));
   const dataPedido = moment(data.created_at).fromNow();
   return (
     <Container>
       <OrderInfo>
         <Title>
-          Pedido <IdTitle>#{data.id} </IdTitle> - {data.user.username}
+          Pedido <IdTitle>#{data.id}</IdTitle> - {data.user.username}
         </Title>
         <Time>{dataPedido}</Time>
         <Price>R$ {data.total_value}</Price>
@@ -39,6 +39,9 @@ export default function OrderItem({ data }) {
           </ProductInfo>
         ))}
       </ProductList>
+      <OrderObservation>
+        <strong>Observações: {data.observation}</strong>
+      </OrderObservation>
     </Container>
   );
 }

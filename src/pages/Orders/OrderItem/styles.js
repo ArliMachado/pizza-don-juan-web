@@ -4,7 +4,8 @@ import { colors, metrics, fonts } from '../../../styles';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 900px;
+  position: relative;
+  width: 50%;
   padding: ${metrics.basePadding}px;
   background-color: ${colors.white};
   margin-top: ${metrics.baseMargin * 1.5}px;
@@ -20,8 +21,8 @@ export const Title = styled.p`
   font-size: ${fonts.big}px;
   margin-bottom: ${metrics.baseMargin / 2}px;
 `;
-export const IdTitle = styled(Title)`
-  font-weight: bold;
+export const IdTitle = styled.strong`
+  font-size: ${fonts.big}px;
   margin-left: ${metrics.baseMargin / 2}px;
   margin-right: ${metrics.baseMargin / 2}px;
 `;
@@ -78,4 +79,10 @@ export const ProductName = styled.p`
 export const ProductSize = styled.p`
   font-size: ${fonts.smaller}px;
   color: ${colors.regular};
+`;
+
+export const OrderObservation = styled.p`
+  font-size: ${fonts.regular}px;
+  color: ${colors.regular};
+  margin-top: ${metrics.baseMargin}px;
 `;
